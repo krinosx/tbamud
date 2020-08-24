@@ -70,6 +70,8 @@ void new_affect(struct affected_type *af);
 int get_class_by_name(char *classname);
 char * convert_from_tabs(char * string);
 int count_non_protocol_chars(char * str);
+char *right_trim_whitespace(const char *string);
+void remove_from_string(char *string, const char *to_remove);
 
 /* Public functions made available form weather.c */
 void weather_and_time(int mode);
@@ -537,7 +539,8 @@ do                                                              \
 /** Unique ID of ch. */
 #define GET_IDNUM(ch)	  ((ch)->char_specials.saved.idnum)
 /** Returns contents of id field from x. */
-#define GET_ID(x)         ((x)->id)
+/** Warning: GET_ID is deprecated and you should use char_script_id, obj_script_id, room_script_id */
+/** #define GET_ID(x)         ((x)->id) */
 /** Weight carried by ch. */
 #define IS_CARRYING_W(ch) ((ch)->char_specials.carry_weight)
 /** Number of items carried by ch. */
